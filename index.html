@@ -77,11 +77,21 @@
         <button id="playButton">
           <i class="fas fa-play"></i>
         </button>
-        <button id="clearButton">
+        <button id="clearButton" id="stopRecording">
           <i class="fas fa-trash-alt"></i>
         </button>
       </div>
     </div>
+
+    <dialog id="confirm-clear-dialog">
+      <form method="dialog">
+        <p class="discard-message-text">Discard Recording</p>
+        <div class="confirm-clear-dialog-container">
+          <button id="cancel-btn">Cancel</button>
+          <button id="discard-btn">Discard</button>
+        </div>
+      </form>
+    </dialog>
 
     <script src="index.js"></script>
   </body>

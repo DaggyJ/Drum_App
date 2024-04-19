@@ -3,6 +3,10 @@ const volumeControl = document.getElementById ("volumeControl");
 const playButton = document.getElementById ("playButton");
 const recordButton = document.getElementById ("recordButton");
 const clearButton = document.getElementById ("clearButton");
+const confirmClearDialog = document.getElementById ("confirm-clear-dialog");
+const cancelBtn = document.getElementById ("cancel-btn");
+const discardBtn = document.getElementById ("discard-btn");
+
 let recordedSequence = [];
 let isRecording = false;
 const handleKeyPress = (e) => {
@@ -15,7 +19,7 @@ const handleKeyPress = (e) => {
     if (!audio) return;
     audio.currentTime = 0; //restartd the audio
     audio.play();
-
+; 
     keyElement.classList.add("playing");
     //keyElement.classList.remove("playing");
 
@@ -25,6 +29,7 @@ const handleKeyPress = (e) => {
             time: e.timeStamp,
         });
 };
+
     console.log(recordedSequence);
 };
 function removeTransition(e) {
@@ -67,6 +72,7 @@ const playRecording = async () => {
 const startRecording = () => {
     isRecording = true;
   };
+
 const clearRecording = () => {
     recordedSequence = [];
     console.log(recordedSequence);
@@ -74,7 +80,23 @@ const clearRecording = () => {
 playButton.addEventListener("click", playRecording);
 volumeControl.addEventListener("input", adjustvolume);
 recordButton.addEventListener("click", startRecording);
-clearButton.addEventListener("click", clearRecording);
+clearButton.addEventListener("click", /*clearRecording*/ () =>{
+    confirmClearDialog.showModal();
+
+});
+
+cancelBtn.addEventListener("click", () =>{
+    confirmClearDialog.close();
+})
+
+discardBtn.addEventListener("click", ()=>{
+    confirmClearDialog.close();
+     recordedSequence = [];
+})
+
+
+
+
 keys.forEach(key=>{
     key.addEventListener("transitionend",removeTransition);
 });

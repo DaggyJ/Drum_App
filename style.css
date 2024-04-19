@@ -1,6 +1,6 @@
 html {
   font-size: 10px;
-  background: url("./background.jpg");
+  background: url("background.jpg");
 }
 
 body,
@@ -92,4 +92,21 @@ button i {
 #clearButton {
   background-color: #2196f3;
   color: white;
+}
+
+#confirm-clear-dialog {
+  padding: 10px;
+  margin: 10px auto;
+  border-radius: 15px;
+}
+
+.confirm-clear-dialog-container{
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.discard-message-text{
+  font-weight: bold;
+  font-size: 1.5rem;
 }
